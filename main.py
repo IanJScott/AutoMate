@@ -631,60 +631,38 @@ def buy(itemToBuy): #buys items
         threadSwitch = 4
     else:
         meseta -= ((10 - inventory[itemToBuy][1])*(itemTbl0[itemToBuy][4]))
+        itemPosition = 0
+        i = 0
         keyPress(Key.enter)
         keyPress(Key.enter)
-        if itemToBuy == "Monomate":
-            pass
-        elif itemToBuy == "Dimate":
-            keyPress(Key.down)
+        if itemToBuy == "Dimate":
+            itemPosition = 1
         elif itemToBuy == "Trimate":
-            keyPress(Key.down)
-            keyPress(Key.down)
+            itemPosition = 2
         elif itemToBuy == "Monofluid":
-            keyPress(Key.down)
-            keyPress(Key.down)
-            keyPress(Key.down)
+            itemPosition = 3
         elif itemToBuy == "Difluid":
-            keyPress(Key.down)
-            keyPress(Key.down)
-            keyPress(Key.down)
-            keyPress(Key.down)
+            itemPosition = 4
         elif itemToBuy == "Trifluid":
-            keyPress(Key.down)
-            keyPress(Key.down)
-            keyPress(Key.down)
-            keyPress(Key.down)
-            keyPress(Key.down)
+            itemPosition = 5
         elif itemToBuy == "Antiparalysis":
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
+            itemPosition = -3
         elif itemToBuy == "Antidote":
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
+            itemPosition = -4
         elif itemToBuy == "Star Atomizer":
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
+            itemPosition = -5
         elif itemToBuy == "Moon Atomizer":
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
+            itemPosition = -6
         elif itemToBuy == "Sol Atomizer":
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
-            keyPress(Key.up)
+            itemPosition = -7
+        if itemPosition < 0 : 
+            while i > itemPosition :
+                keyPress(Key.up)
+                i -= 1
+        else :
+            while i < itemPosition :
+                keyPress(Key.down)
+                i += 1
         keyPress(Key.enter)
         if inventory[itemToBuy][1] == 9: #doesn't input down press if you already have x9 of the item
             pass

@@ -133,6 +133,8 @@ class Mag: #includes init, setName, and feed
         self.item = item
     def setName(self): #checks for evolutions
         global gender, secid, magFeedingTables, charProfession, secIDListA, secIDListB
+        if self.name == 'Cell Mag':
+               return
         if self.level == 10: #first evos
             if charProfession == 'Hunter':
                 self.name = 'Varuna'

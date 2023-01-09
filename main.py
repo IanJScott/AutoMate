@@ -631,30 +631,32 @@ def buy(itemToBuy): #buys items
         threadSwitch = 4
     else:
         meseta -= ((10 - inventory[itemToBuy][1])*(itemTbl0[itemToBuy][4]))
-        itemPosition = 0
         i = 0
         keyPress(Key.enter)
         keyPress(Key.enter)
-        if itemToBuy == "Dimate":
-            itemPosition = 1
-        elif itemToBuy == "Trimate":
-            itemPosition = 2
-        elif itemToBuy == "Monofluid":
-            itemPosition = 3
-        elif itemToBuy == "Difluid":
-            itemPosition = 4
-        elif itemToBuy == "Trifluid":
-            itemPosition = 5
-        elif itemToBuy == "Antiparalysis":
-            itemPosition = -3
-        elif itemToBuy == "Antidote":
-            itemPosition = -4
-        elif itemToBuy == "Star Atomizer":
-            itemPosition = -5
-        elif itemToBuy == "Moon Atomizer":
-            itemPosition = -6
-        elif itemToBuy == "Sol Atomizer":
-            itemPosition = -7
+        match itemToBuy:
+            case "Monomate":
+                itemPosition = 0
+            case "Dimate":
+                itemPosition = 1
+            case "Trimate":
+                itemPosition = 2
+            case "Monofluid":
+                itemPosition = 3
+            case "Difluid":
+                itemPosition = 4
+            case "Trifluid":
+                itemPosition = 5
+            case "Antiparalysis":
+                itemPosition = -3
+            case "Antidote":
+                itemPosition = -4
+            case "Star Atomizer":
+                itemPosition = -5
+            case "Moon Atomizer":
+                itemPosition = -6
+            case "Sol Atomizer":
+                itemPosition = -7
         if itemPosition < 0 : 
             while i > itemPosition :
                 keyPress(Key.up)
